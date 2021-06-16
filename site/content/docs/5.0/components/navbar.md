@@ -659,16 +659,18 @@ When you do this, we recommend including additional JavaScript to move the focus
 
 Transform your expanding and collapsing navbar into an offcanvas drawer with the offcanvas plugin. We extend both the offcanvas default styles and our `.navbar-expand-*` classes to create a dynamic and flexible navigation sidebar.
 
+For example, to create an offcanvas navbar that expands into a normal navbar at the `xl` breakpoint, use both `.navbar-expand-xl` and `.navbar-offcanvas-xl`.
+
 {{< example >}}
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-light navbar-expand-xl navbar-offcanvas-xl bg-light fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Offcanvas navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navbar-expand-lg" aria-controls="offcanvas-navbar-expand-lg">
-      <span class="navbar-toggler-icon" data-bs-target="#offcanvas-navbar-expand-lg"></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon" data-bs-target="#offcanvasNavbar"></span>
     </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-navbar-expand-lg" aria-labelledby="offcanvas-navbar-expand-lgLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -703,11 +705,17 @@ Transform your expanding and collapsing navbar into an offcanvas drawer with the
 </nav>
 {{< /example >}}
 
-For an offcanvas navbar that never expands at larger viewports, omit the `.navbar-expand` class entirely.
+For an offcanvas navbar that is always collapsed, even at larger viewports, omit the `.navbar-expand` and `.navbar-offcanvas` classes entirely.
 
 ```html
 <nav class="navbar navbar-light bg-light fixed-top">
-  ...
+  <a class="navbar-brand" href="#">Offcanvas navbar</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasAlways" aria-controls="navbarOffcanvasAlways">
+    <span class="navbar-toggler-icon" data-bs-target="#navbarOffcanvasAlways"></span>
+  </button>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasAlways" aria-labelledby="navbarOffcanvasAlwaysLabel">
+    ...
+  </div>
 </nav>
 ```
 
