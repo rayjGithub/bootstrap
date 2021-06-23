@@ -12,17 +12,18 @@ Bootstrap utilities are generated with our utility API and can be used to modify
 The `$utilities` map contains all our utilities and is later merged with your custom `$utilities` map, if present. The utility map contains a keyed list of utility groups which accept the following options:
 
 {{< bs-table "table text-start" >}}
-| Option | Type | Description |
-| --- | --- | --- |
-| `property` | **Required** | Name of the property, this can be a string or an array of strings (e.g., horizontal paddings or margins). |
-| `values` | **Required** | List of values, or a map if you don't want the class name to be the same as the value. If `null` is used as map key, it isn't compiled. |
-| `class` | Optional | Variable for the class name if you don't want it to be the same as the property. In case you don't provide the `class` key and `property` key is an array of strings, the class name will be the first element of the `property` array. |
-| `css-var` | Optional | Boolean option for generating CSS variables only (`true`) instead of `property: value` pairs (default). |
-| `state` | Optional | List of pseudo-class variants like `:hover` or `:focus` to generate for the utility. No default value. |
-| `responsive` | Optional | Boolean indicating if responsive classes need to be generated. `false` by default. |
-| `rfs` | Optional | Boolean to enable fluid rescaling. Have a look at the [RFS]({{< docsref "/getting-started/rfs" >}}) page to find out how this works. `false` by default. |
-| `print` | Optional | Boolean indicating if print classes need to be generated. `false` by default. |
-| `rtl` | Optional | Boolean indicating if utility should be kept in RTL. `true` by default. |
+| Option | Type | Default&nbsp;value | Description |
+| --- | --- | --- | --- |
+| `property` | **Required** | N/A | Name of the property, this can be a string or an array of strings (e.g., horizontal paddings or margins). |
+| `values` | **Required** | N/A | List of values, or a map if you don't want the class name to be the same as the value. If `null` is used as map key, it isn't compiled. |
+| `class` | Optional | `property` | Name of the generated class. If not provided and `property` is an array of strings, `class` will default to the first element of the `property` array. |
+| `css-var` | Optional | `false` | Boolean to generate CSS variables instead of CSS rules. |
+| `local-vars` | Optional | null | Map of local CSS variables to generate in addition to the CSS rules. |
+| `state` | Optional | null | List of pseudo-class variants (e.g., `:hover` or `:focus`) to generate. |
+| `responsive` | Optional | `false` | Boolean indicating if responsive classes should be generated. |
+| `rfs` | Optional | `false` | Boolean to enable [fluid rescaling with RFS]({{< docsref "/getting-started/rfs" >}}). |
+| `print` | Optional | `false` | Boolean indicating if print classes need to be generated. |
+| `rtl` | Optional | `true` | Boolean indicating if utility should be kept in RTL. |
 {{< /bs-table >}}
 
 ## API explained
@@ -110,6 +111,37 @@ Output:
 .text-opacity-50 { --bs-text-opacity: .5; }
 .text-opacity-75 { --bs-text-opacity: .75; }
 .text-opacity-100 { --bs-text-opacity: 1; }
+```
+
+### Local CSS variables
+
+Use the `local-vars` option to specify a Sass map that will generate local CSS variables within the utility class's ruleset. Please note that it may require additional work to consume those local CSS variables in the generated CSS rules. For example, consider our `.bg-*` utilities:
+
+```scss
+$utilities: (
+  "background-color": (
+    property: background-color,
+    class: bg,
+    local-vars: (
+      "bg-opacity": 1
+    ),
+    values: map-merge(
+      $utilities-bg-colors,
+      (
+        "transparent": transparent
+      )
+    )
+  )
+);
+```
+
+Output:
+
+```css
+.bg-primary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+}
 ```
 
 ### States
