@@ -657,9 +657,9 @@ When you do this, we recommend including additional JavaScript to move the focus
 
 ### Offcanvas
 
-Transform your expanding and collapsing navbar into an offcanvas drawer with the offcanvas plugin. We extend both the offcanvas default styles and our `.navbar-expand-*` classes to create a dynamic and flexible navigation sidebar.
+Transform your expanding and collapsing navbar into an offcanvas drawer with the offcanvas plugin. We extend both the offcanvas default styles and use our `.navbar-expand-*` classes to create a dynamic and flexible navigation sidebar.
 
-For example, to create an offcanvas navbar that expands into a normal navbar at the `xl` breakpoint, use `.navbar-expand-xl` an offcanvas.
+For example, to create an offcanvas navbar that expands into a normal navbar at the `xl` breakpoint, use `.navbar-expand-xl` and an offcanvas component around your navbar content.
 
 {{< example >}}
 <nav class="navbar navbar-light navbar-expand-xl bg-light fixed-top">
@@ -705,7 +705,7 @@ For example, to create an offcanvas navbar that expands into a normal navbar at 
 </nav>
 {{< /example >}}
 
-For an offcanvas navbar that is always collapsed, even at larger viewports, omit the `.navbar-expand` and `.navbar-offcanvas` classes entirely.
+For an offcanvas navbar that is always collapsed, even at larger viewports, omit the `.navbar-expand` class entirely.
 
 ```html
 <nav class="navbar navbar-light bg-light fixed-top">
