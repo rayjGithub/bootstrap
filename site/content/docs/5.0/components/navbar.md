@@ -666,7 +666,7 @@ For example, to create an offcanvas navbar that expands into a normal navbar at 
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Offcanvas navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon" data-bs-target="#offcanvasNavbar"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div class="offcanvas-header">
@@ -711,7 +711,7 @@ For an offcanvas navbar that is always collapsed, even at larger viewports, omit
 <nav class="navbar navbar-light bg-light fixed-top">
   <a class="navbar-brand" href="#">Offcanvas navbar</a>
   <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvasAlways" aria-controls="navbarOffcanvasAlways">
-    <span class="navbar-toggler-icon" data-bs-target="#navbarOffcanvasAlways"></span>
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarOffcanvasAlways" aria-labelledby="navbarOffcanvasAlwaysLabel">
     ...
