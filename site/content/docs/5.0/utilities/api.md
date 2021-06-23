@@ -42,7 +42,7 @@ $utilities: (
       100: 1,
     )
   )
- );
+);
 ```
 
 Which outputs the following:
@@ -72,7 +72,7 @@ $utilities: (
       100: 1,
     )
   )
- );
+);
 ```
 
 Output:
@@ -101,7 +101,7 @@ $utilities: (
       100: 1
     )
   ),
- );
+);
 ```
 
 Output:
@@ -194,7 +194,7 @@ $utilities: (
       100: 1,
     )
   )
- );
+);
 ```
 
 Output:
@@ -278,7 +278,7 @@ $utilities: (
       100: 1,
     )
   )
- );
+);
 ```
 
 Output:
