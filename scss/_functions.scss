@@ -38,7 +38,7 @@
 }
 
 @function rgba-css-var($identifier, $target) {
-  @return rgba(var(--#{$variable-prefix}#{$identifier}-rgb), var(--#{$variable-prefix}#{$target}-opacity, 1));
+  @return rgba(var(--#{$variable-prefix}#{$identifier}-rgb), var(--#{$variable-prefix}#{$target}-opacity));
 }
 
 // stylelint-disable scss/dollar-variable-pattern

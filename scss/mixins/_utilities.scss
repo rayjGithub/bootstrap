@@ -42,7 +42,7 @@
     }
 
     $is-css-var: map-get($utility, css-var);
-
+    $is-local-vars: map-get($utility, local-vars);
     $is-rtl: map-get($utility, rtl);
 
     @if $value != null {
@@ -63,6 +63,11 @@
       } @else {
         .#{$property-class + $infix + $property-class-modifier} {
           @each $property in $properties {
+            @if $is-local-vars {
+              @each $local-var, $value in $is-local-vars {
+                --#{$variable-prefix}#{$local-var}: #{$value};
+              }
+            }
             #{$property}: $value if($enable-important-utilities, !important, null);
           }
         }

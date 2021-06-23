@@ -43,11 +43,12 @@ Consider our default `.text-primary` utility.
 
 ```css
 .text-primary {
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity, 1)) !important;
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
 }
 ```
 
-We use an RGB version of our `--bs-primary` (with the value of `13, 110, 253`) CSS variable and attached a second CSS variable, `--bs-text-opacity`, for the alpha transparency (with no default value, but a fallback of `1`). That means anytime you use `.text-primary` now, your computed `color` value is `rgba(13, 110, 253, 1)`.
+We use an RGB version of our `--bs-primary` (with the value of `13, 110, 253`) CSS variable and attached a second CSS variable, `--bs-bg-opacity`, for the alpha transparency (with a default value `1` thanks to a local CSS variable). That means anytime you use `.text-primary` now, your computed `color` value is `rgba(13, 110, 253, 1)`.
 
 ### Example
 
