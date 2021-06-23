@@ -193,23 +193,11 @@
         .navbar-toggler {
           display: none;
         }
-      }
-    }
-  }
-}
-// scss-docs-end navbar-expand-loop
 
-.navbar-offcanvas {
-  @each $breakpoint in map-keys($grid-breakpoints) {
-    $next: breakpoint-next($breakpoint, $grid-breakpoints);
-    $infix: breakpoint-infix($next, $grid-breakpoints);
-
-    // stylelint-disable-next-line scss/selector-no-union-class-name
-    &#{$infix} {
-      @include media-breakpoint-up($next) {
         .offcanvas-header {
           display: none;
         }
+
         .offcanvas {
           position: inherit;
           bottom: 0;
@@ -222,6 +210,13 @@
           @include transition(none);
           transform: none;
         }
+        .offcanvas-top,
+        .offcanvas-bottom {
+          height: auto;
+          border-top: 0;
+          border-bottom: 0;
+        }
+
         .offcanvas-body {
           display: flex;
           flex-grow: 0;
@@ -232,6 +227,7 @@
     }
   }
 }
+// scss-docs-end navbar-expand-loop
 
 // Navbar themes
 //
